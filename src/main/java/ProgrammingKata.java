@@ -98,12 +98,26 @@ public class ProgrammingKata
             //********* * Write * * good * * code * * every * * day * *********
             String str = "Write,good,code,every,day";
             a=str.split(",",5);
-            System.out.println("*********");
+            System.out.println("**********");
             for (String word : a)
             {
-                System.out.println("* "+word);
+                if (word.length()==5)
+                {
+                    System.out.print("* "+word);
+                    System.out.print("  *\n");
+                }
+                else if(word.length()==4)
+                {
+                    System.out.print("* "+word);
+                    System.out.print("   *\n");
+                }
+                else
+                {
+                    System.out.print("* "+word);
+                    System.out.print("    *\n");
+                }
             }
-            System.out.println("*********");
+            System.out.println("**********");
 
         }
         public static void main(String[] args)
