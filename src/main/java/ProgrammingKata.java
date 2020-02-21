@@ -96,24 +96,25 @@ public class ProgrammingKata
         public static void frame(String a[])
         {
             //********* * Write * * good * * code * * every * * day * *********
-            String str = "Write,good,code,every,day";
-            a=str.split(",",5);
+
             System.out.println("**********");
             for (String word : a)
             {
+                System.out.print("* "+word);
                 if (word.length()==5)
                 {
-                    System.out.print("* "+word);
+                    //System.out.print(word+"*");
                     System.out.print("  *\n");
+
                 }
                 else if(word.length()==4)
                 {
-                    System.out.print("* "+word);
+                    //System.out.print("* "+word);
                     System.out.print("   *\n");
                 }
                 else
                 {
-                    System.out.print("* "+word);
+                    //System.out.print("* "+word);
                     System.out.print("    *\n");
                 }
             }
@@ -122,8 +123,8 @@ public class ProgrammingKata
         }
         public static void main(String[] args)
         {
-            int a[]={11,22,33};
-            int b[]={1,2,3};
+            int a[] = {11,22,33};
+            int b[] = {1,2,3};
 
             hello("Tshepo");
             even_Or_Odd(3);
