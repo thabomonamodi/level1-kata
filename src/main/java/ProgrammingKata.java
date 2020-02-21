@@ -1,5 +1,6 @@
 import com.sun.tools.javac.code.Attribute;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ProgrammingKata
@@ -93,34 +94,52 @@ public class ProgrammingKata
             }
             System.out.println(Arrays.toString(result));
         }
-        public static void frame(String a[])
-        {
-            //********* * Write * * good * * code * * every * * day * *********
-
-            System.out.println("**********");
-            for (String word : a)
-            {
-                System.out.print("* "+word);
-                if (word.length()==5)
-                {
-                    //System.out.print(word+"*");
-                    System.out.print("  *\n");
-
-                }
-                else if(word.length()==4)
-                {
-                    //System.out.print("* "+word);
-                    System.out.print("   *\n");
-                }
-                else
-                {
-                    //System.out.print("* "+word);
-                    System.out.print("    *\n");
-                }
+    public static void frame(String... fra)
+    {
+        ArrayList<String> list = new ArrayList<String>();
+        int inside = 0;
+        int topsize = 0;
+        int longestlength = 0;
+        for (String i : fra) {
+            int length = i.length();
+            if (length > longestlength)
+            {                longestlength = length;
+                list.clear();
             }
-            System.out.println("**********");
-
+            if (length == longestlength)
+            {
+                list.add(i);
+            }
         }
+//          top stars
+        for (String x : list)
+        {
+            topsize = x.length();
+        }
+        for(int j=0; j<topsize+4;j++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+//          middle of the frame
+        for (String i : fra)
+        {
+            System.out.print("* " + i);
+            inside = topsize+4-i.length()-3;
+            for (int z=0;z<inside;z++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print("*");
+            System.out.println();
+        }
+//          bottom stars
+        for(int j=0; j<topsize+4;j++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
         public static void main(String[] args)
         {
             int a[] = {11,22,33};
@@ -134,6 +153,6 @@ public class ProgrammingKata
             longest(new String[]{"the", "quick", "brown", "chickens", "fox", "ate", "my" });
             longest(new String[]{"once", "upon", "a", "time", "hi"});
             combine(a,b);
-            frame(new String[]{"Write", "good", "code", "every", "day"});
+            frame("Write", "good", "code", "every", "day");
         }
 }
